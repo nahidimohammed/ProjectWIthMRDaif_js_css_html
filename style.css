@@ -1,0 +1,55 @@
+body {
+
+}
+section {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+body > section > div {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    max-width: 400px;
+    background-color: #982439;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s;
+
+}
+
+.animationAfterLoading {
+    animation: onloadAnimation 2s ;
+
+}
+
+body > section > div:hover {
+    transition: all 0.5s;
+    scale: 1.1;
+    border-radius: 10px;
+}
+
+@media screen and  (min-width : 600px )  {
+    section {
+        flex-flow: column wrap;
+    }
+
+}
+
+
+@keyframes onloadAnimation {
+    0% {
+        rotate: 0deg;
+    }
+    33% {
+        rotate: 30deg;
+    }
+    66% {
+        rotate: -30deg;
+
+    }
+    100%{
+        rotate: 0deg;
+    }
+}
