@@ -5,7 +5,7 @@ let createmultipledivsRandomly = (Arr) => {
     for(let i = 1 ; i < 20 ; i++){
         let key = Math.floor(Math.random() *(19 - 0) + 0);
         //console.log(i);
-        quary += '<div> <img src="https://source.unsplash.com/random/400x400/?img='+i+'" loading="eager" alt=""><h1>'+Arr[key]+'</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero eaque, tempora porro officia debitis harum, non nisi incidunt necessitatibus odio maxime reiciendis, facere velit voluptatum corrupti alias reprehenderit illo? Accusantium.</p></div>';
+        quary += '<div> <img src="https://source.unsplash.com/random/350x350/?img='+i+'" loading="eager" alt=""><h1>'+Arr[key]+'</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero eaque, tempora porro officia debitis harum, non nisi incidunt necessitatibus odio maxime reiciendis, facere velit voluptatum corrupti alias reprehenderit illo? Accusantium.</p></div>';
     }
     document.querySelectorAll('body > section')[0].innerHTML = quary;
 }
@@ -18,7 +18,7 @@ let createmultipledivs = (Arr) => {
     for(let i = 0 ; i < 20 ; i++){
         let key = Math.floor(Math.random() *(19 - 0) + 0);
         //console.log(i);
-        quary += '<div> <img src="https://source.unsplash.com/random/400x400/?img='+i+'" loading="eager" alt=""><h1>'+Arr[i]+'</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero eaque, tempora porro officia debitis harum, non nisi incidunt necessitatibus odio maxime reiciendis, facere velit voluptatum corrupti alias reprehenderit illo? Accusantium.</p></div>';
+        quary += '<div> <img src="https://source.unsplash.com/random/350x350/?img='+i+'" loading="eager" alt=""><h1>'+Arr[i]+'</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero eaque, tempora porro officia debitis harum, non nisi incidunt necessitatibus odio maxime reiciendis, facere velit voluptatum corrupti alias reprehenderit illo? Accusantium.</p></div>';
     }
     document.querySelectorAll('body > section')[0].innerHTML = quary;
 }
@@ -27,6 +27,8 @@ window.onload = () => {
         element.className ='animationAfterLoading';
     });
 }
+
+
 
 let sortingTheSectionListUpOrDown = (StartWithUpOrDown) => {
     let sortedArray;
@@ -38,5 +40,21 @@ let sortingTheSectionListUpOrDown = (StartWithUpOrDown) => {
     sortedArray = randomString.sort((a, b) =>  b.localeCompare(a));
     
     createmultipledivs(sortedArray);
-    console.log(sortedArray);
 }
+// clicking the sorting btn
+
+document.querySelectorAll('body > header > div > button')[0].addEventListener('click',  () => {
+    sortingTheSectionListUpOrDown(0);
+
+    document.querySelectorAll('body > section > div').forEach(element => {
+        element.className ='animationAfterLoading';
+    });
+});
+// clicking the sorting btn
+document.querySelectorAll('body > header > div > button')[1].addEventListener('click',  () => {
+    sortingTheSectionListUpOrDown(1);
+    document.querySelectorAll('body > section > div').forEach(element => {
+        element.className ='animationAfterLoading';
+    });
+});
+
