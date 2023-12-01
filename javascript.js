@@ -1,4 +1,4 @@
-let randomString = ["hello" , "this is the secondstring" , "but this is title " , "all these are just a for test" , "hello world again" , "title1" ,"title3" , "title8" , "test3","test1" ,"hello" , "this is the secondstring" , "97ut this is title " , "all tasfse are just a for test" , "hello woasfdd again" , "tsfetle1" ,"tiafsele3" , "tafsee8" , "j;aoisjfe","jpoiasjfe"  ];
+let randomString = ["hello" , "this is the secondstring" , "but this is title " , "all these are just a for test" , "hello world again" , "title1" ,"title3" , "title8" , "test3","test1" ,"helluo" , "this is the secondstrafing" , "97ut this iwes title " , "all tasfse are just a foegrr test" , "hello woasfdd345 again" , "tsfe245tle1" ,"tiafselwr43254e3" , "tafscvpee8" , "j;aa;sofkoisjfe","jpoijasefoiasjfe"  ];
 
 let createmultipledivsRandomly = (Arr) => {
     let quary = "";
@@ -22,6 +22,18 @@ let createmultipledivs = (Arr) => {
     }
     document.querySelectorAll('body > section')[0].innerHTML = quary;
 }
+
+let createmultipledivsIndex = (Arr , listOfIndexs) => {
+    let quary = "";
+    for(let i = 0 ; i < 20 ; i++){
+        let key = Math.floor(Math.random() *(19 - 0) + 0);
+        //console.log(i);
+        quary += '<div> <img src="https://source.unsplash.com/random/350x350/?img='+listOfIndexs[i]+'" loading="eager" alt=""><h1>'+Arr[i]+'</h1><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero eaque, tempora porro officia debitis harum, non nisi incidunt necessitatibus odio maxime reiciendis, facere velit voluptatum corrupti alias reprehenderit illo? Accusantium.</p></div>';
+    }
+    document.querySelectorAll('body > section')[0].innerHTML = quary;
+}
+
+
 window.onload = () => {
     document.querySelectorAll('body > section > div').forEach(element => {
         element.className ='animationAfterLoading';
@@ -31,15 +43,39 @@ window.onload = () => {
 
 
 let sortingTheSectionListUpOrDown = (StartWithUpOrDown) => {
-    let sortedArray;
+    let sortedArray = randomString.slice();
+
+    sortedArray.sort();
+
+    let listOfIndexs = [];
+
     if (StartWithUpOrDown == 1){
-        sortedArray = randomString.sort()
-        createmultipledivs(sortedArray);
+        sortedArray.forEach(item => {
+            randomString.forEach(items => {
+                if (item == items){
+                    listOfIndexs.push(randomString.indexOf(items));
+
+                    //listOfIndexs.push(randomString.indexOf(items));
+                    
+                }
+            })
+        })
+        createmultipledivsIndex(sortedArray,listOfIndexs);
         return ;
     }
     sortedArray = randomString.sort((a, b) =>  b.localeCompare(a));
+    sortedArray.forEach(item => {
+        randomString.forEach(items => {
+            if (item == items){
+                listOfIndexs.push(randomString.indexOf(items));
+
+                //listOfIndexs.push(randomString.indexOf(items));
+                
+            }
+        })
+    })
     
-    createmultipledivs(sortedArray);
+    createmultipledivsIndex(sortedArray,listOfIndexs);
 }
 // clicking the sorting btn
 
